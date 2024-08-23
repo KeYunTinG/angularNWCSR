@@ -1,8 +1,8 @@
 <div class="flex items-center space-x-4 pr-4 pb-4 rounded-md">
   <!-- 單位選擇 -->
   <div class="flex items-center space-x-2">
-    <label for="unit" class="text-black font-semibold">單位</label>
-    <select id="unit" v-model="selectedUnit" class="p-2 rounded border border-gray-300">
+    <label for="unit" class="text-black font-semibold dark:text-white">單位</label>
+    <select id="unit" v-model="selectedUnit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option value="">請選擇</option>
       <option value="unit1">單位1</option>
       <option value="unit2">單位2</option>
@@ -11,20 +11,20 @@
 
   <!-- 科別 -->
   <div class="flex items-center space-x-2">
-    <label for="department" class="text-black font-semibold">科別</label>
-    <input id="department" v-model="department" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+    <label for="department" class="text-black font-semibold dark:text-white">科別</label>
+    <input id="department" formControlName="department" type="text" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">
   </div>
 
   <!-- 員編 -->
   <div class="flex items-center space-x-2">
-    <label for="employeeNumber" class="text-black font-semibold">員編</label>
-    <input id="employeeNumber" v-model="employeeNumber" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+    <label for="employeeNumber" class="text-black font-semibold dark:text-white">員編</label>
+    <input id="employeeNumber" formControlName="employeeNumber" type="text" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">
   </div>
 
   <!-- 姓名 -->
   <div class="flex items-center space-x-2">
-    <label for="name" class="text-black font-semibold">姓名</label>
-    <input id="name" v-model="name" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+    <label for="name" class="text-black font-semibold dark:text-white">姓名</label>
+    <input id="name" formControlName="name" type="text" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">
   </div>
 
   <!-- 搜尋按鈕 -->
