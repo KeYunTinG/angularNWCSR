@@ -15,15 +15,16 @@ export class DefaultComponent implements OnInit {
   customers: Customers[] = [];
   //當前頁數
   currentPage: number = 1;
-  //總頁數
-  totalPages: number = 10;
   //每頁資料數
-  pageSize: number = 10;
+  pageSize: number = 5;
+  //總頁數
+  totalPages: number = 30;
 
   constructor(private customersService: CustomersService) {}
 
   ngOnInit(): void {
     this.loadCustomers(this.currentPage, this.pageSize);
+    this.getPageCount();
   }
 
   //換頁
@@ -34,13 +35,16 @@ export class DefaultComponent implements OnInit {
         this.customers = data;
       });
   }
+  getPageCount() {
+    this.customersService.getCount().subscribe((count) => {
+      this.totalPages = Math.ceil(count / this.pageSize);
+    });
+  }
 
   //由html觸發
   onPageChange(newPage: number) {
     // 更新當前頁碼
     this.currentPage = newPage;
-    // 在控制台中輸出變更的頁碼
-    console.log('頁碼變更為:', newPage);
     this.loadCustomers(this.currentPage, this.pageSize);
   }
 }

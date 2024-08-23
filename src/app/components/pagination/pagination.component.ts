@@ -57,6 +57,7 @@ export class PaginationComponent implements OnInit {
 
     // 觸發事件
     this.pageChange.emit(num);
+    this.setPageNumber();
   }
 
   goPrevious() {
@@ -66,11 +67,22 @@ export class PaginationComponent implements OnInit {
 
   goNext() {
     this.jumpTo(this.currentPage() + 1);
-    this.setPageNumber();
+    //避免逢10就進後十頁
+    if (this.currentPage() % 10 !== 0) this.setPageNumber();
   }
   //產生頁碼
   setPageNumber() {
-    let startpage = Math.floor(this.currentPage() / 10) * 10 + 1;
-    this.pageNumbers = Array.from({ length: 10 }, (_, i) => startpage + i);
+    if (this.currentPage() < 10) {
+      this.pageNumbers = Array.from({ length: 10 }, (_, i) => 1 + i);
+    } else {
+      const startPage =
+        (Math.floor((this.currentPage() - 11) / 10) + 1) * 10 + 1;
+      const endPage =
+        startPage + 9 > this.pageCount ? this.pageCount : startPage + 9;
+      this.pageNumbers = Array.from(
+        { length: endPage - startPage + 1 },
+        (_, i) => startPage + i
+      );
+    }
   }
 }

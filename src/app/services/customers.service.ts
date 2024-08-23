@@ -6,8 +6,8 @@ import { Customers } from '../interfaces/customers';
   providedIn: 'root',
 })
 export class CustomersService {
-  mainUrl = 'https://localhost:7149/api/';
-  keyUrl = `${this.mainUrl}Customer/`;
+  mainUrl = 'https://localhost:7149/api';
+  keyUrl = `${this.mainUrl}/Customer`;
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,10 @@ export class CustomersService {
   }
   getPageData(page: number, pageSize: number) {
     return this.http.get<Customers[]>(
-      `${this.keyUrl}${page}?pageSize=${pageSize}`
+      `${this.keyUrl}/${page}?pageSize=${pageSize}`
     );
+  }
+  getCount() {
+    return this.http.get<number>(`${this.keyUrl}/count`);
   }
 }
