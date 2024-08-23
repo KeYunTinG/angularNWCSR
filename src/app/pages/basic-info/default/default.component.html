@@ -1,0 +1,82 @@
+<div class="flex items-center space-x-4 pr-4 pb-4 rounded-md">
+  <!-- 單位選擇 -->
+  <div class="flex items-center space-x-2">
+    <label for="unit" class="text-black font-semibold">單位</label>
+    <select id="unit" v-model="selectedUnit" class="p-2 rounded border border-gray-300">
+      <option value="">請選擇</option>
+      <option value="unit1">單位1</option>
+      <option value="unit2">單位2</option>
+    </select>
+  </div>
+
+  <!-- 科別 -->
+  <div class="flex items-center space-x-2">
+    <label for="department" class="text-black font-semibold">科別</label>
+    <input id="department" v-model="department" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+  </div>
+
+  <!-- 員編 -->
+  <div class="flex items-center space-x-2">
+    <label for="employeeNumber" class="text-black font-semibold">員編</label>
+    <input id="employeeNumber" v-model="employeeNumber" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+  </div>
+
+  <!-- 姓名 -->
+  <div class="flex items-center space-x-2">
+    <label for="name" class="text-black font-semibold">姓名</label>
+    <input id="name" v-model="name" type="text" class="p-2 rounded border border-gray-300" placeholder="">
+  </div>
+
+  <!-- 搜尋按鈕 -->
+  <button  class="p-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+    搜尋
+  </button>
+</div>
+<!-- 表格 -->
+
+
+<div *ngIf="customers.length; else noData" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Product name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Color
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Category
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Price
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  <span class="sr-only">Edit</span>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let customer of customers" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{ customer.customerId }}
+              </th>
+              <td class="px-6 py-4">
+                {{ customer.companyName }}
+              </td>
+              <td class="px-6 py-4">
+                {{ customer.contactName }}
+              </td>
+              <td class="px-6 py-4">
+                {{ customer.contactTitle }}
+              </td>
+              <td class="px-6 py-4 text-right">
+                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<ng-template #noData>
+  <p>No customers found.</p>
+</ng-template>
