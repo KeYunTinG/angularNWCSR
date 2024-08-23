@@ -1,16 +1,19 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeToggleComponent } from '../../components/theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ThemeToggleComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
   isDropdownOpen = false;
   isSidebarOpen = true;
+
+  constructor() {}
 
   // 監聽窗口尺寸變化
   @HostListener('window:resize', ['$event'])

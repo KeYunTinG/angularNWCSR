@@ -67,8 +67,7 @@ export class PaginationComponent implements OnInit {
 
   goNext() {
     this.jumpTo(this.currentPage() + 1);
-    //避免逢10就進後十頁
-    if (this.currentPage() % 10 !== 0) this.setPageNumber();
+    this.setPageNumber();
   }
   //產生頁碼
   setPageNumber() {

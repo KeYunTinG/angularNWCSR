@@ -16,9 +16,9 @@ export class DefaultComponent implements OnInit {
   //當前頁數
   currentPage: number = 1;
   //每頁資料數
-  pageSize: number = 5;
+  pageSize: number = 10;
   //總頁數
-  totalPages: number = 30;
+  totalPages: number = 10;
 
   constructor(private customersService: CustomersService) {}
 
