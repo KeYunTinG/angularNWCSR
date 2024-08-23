@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 export class PaginationComponent implements OnInit {
   @Input() page = 1;
   @Input() pageCount = 1;
+  @Input() pageNumbers: number[] = [];
 
   @Output() pageChange = new EventEmitter<number>();
 
@@ -42,6 +43,7 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {
     // 根據 @Input() 初始頁碼狀態
     this.currentPage.set(this.page);
+    this.setPageNumber();
   }
 
   jumpTo(num: number) {
@@ -59,9 +61,16 @@ export class PaginationComponent implements OnInit {
 
   goPrevious() {
     this.jumpTo(this.currentPage() - 1);
+    this.setPageNumber();
   }
 
   goNext() {
     this.jumpTo(this.currentPage() + 1);
+    this.setPageNumber();
+  }
+  //產生頁碼
+  setPageNumber() {
+    let startpage = Math.floor(this.currentPage() / 10) * 10 + 1;
+    this.pageNumbers = Array.from({ length: 10 }, (_, i) => startpage + i);
   }
 }

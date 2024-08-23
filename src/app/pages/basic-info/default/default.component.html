@@ -77,11 +77,15 @@
       </tbody>
   </table>
 </div>
+
+<div class="pt-4"style="text-align: center;">
 <app-pagination
   [page]="currentPage"
   [pageCount]="totalPages"
   (pageChange)="onPageChange($event)">
 </app-pagination>
+</div>
+
 <ng-template #noData>
   <p>No customers found.</p>
 </ng-template>
