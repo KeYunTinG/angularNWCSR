@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
 import { Customers } from '../interfaces/customers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomersService {
-  mainUrl = 'https://localhost:7149/api/Customer/1?pageSize=10';
+  mainUrl = 'https://localhost:7149/api/';
+  keyUrl = `${this.mainUrl}Customer/`;
 
   constructor(private http: HttpClient) {}
 
   getAllData() {
-    return this.http.get<Customers[]>(`${this.mainUrl}`);
+    return this.http.get<Customers[]>(`${this.keyUrl}`);
   }
-  // getAllData(): Observable<Customers[]> {
-  //   return this.http.get<Customers[]>(`${this.mainUrl}`).pipe(
-  //     catchError((error) => {
-  //       console.error('Error fetching data', error);
-  //       return throwError(() => new Error('Error fetching data'));
-  //     })
-  //   );
-  // }
+  getPageData(page: number, pageSize: number) {
+    return this.http.get<Customers[]>(
+      `${this.keyUrl}${page}?pageSize=${pageSize}`
+    );
+  }
 }

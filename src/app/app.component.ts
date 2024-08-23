@@ -11,5 +11,5 @@ import { DefaultComponent } from './pages/basic-info/default/default.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'mygo1';
+  title = 'mygo';
 }
