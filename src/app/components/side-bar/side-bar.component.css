@@ -1,0 +1,23 @@
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-menu.open {
+  max-height: 500px;
+  opacity: 1;
+}

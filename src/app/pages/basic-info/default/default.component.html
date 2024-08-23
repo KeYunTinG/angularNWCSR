@@ -1,11 +1,19 @@
+<div >
+  <h5 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">員工基本資料 共{{totalDatas}}筆</h5>
+</div>
+
 <div class="flex items-center space-x-4 pr-4 pb-4 rounded-md">
   <!-- 單位選擇 -->
   <div class="flex items-center space-x-2">
-    <label for="unit" class="text-black font-semibold dark:text-white">單位</label>
+    <label for="unit" class="text-black font-semibold dark:text-whitegif dark:text-white">單位</label>
     <select id="unit" v-model="selectedUnit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option value="">請選擇</option>
-      <option value="unit1">單位1</option>
-      <option value="unit2">單位2</option>
+      <option value="unit1">信託部</option>
+      <option value="unit2">新分行</option>
+      <option value="unit3">行銷企劃部</option>
+      <option value="unit4">法務暨法令遵循部</option>
+      <option value="unit5">高雄卡中心</option>
+      <option value="unit6">台北卡中心</option>
     </select>
   </div>
 
@@ -33,7 +41,6 @@
   </button>
 </div>
 <!-- 表格 -->
-
 
 <div *ngIf="customers.length; else noData" class="relative overflow-x-auto shadow-md sm:rounded-lg">
   <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

@@ -19,6 +19,8 @@ export class DefaultComponent implements OnInit {
   pageSize: number = 10;
   //總頁數
   totalPages: number = 10;
+  //資料比數
+  totalDatas: number = 1;
 
   constructor(private customersService: CustomersService) {}
 
@@ -38,6 +40,7 @@ export class DefaultComponent implements OnInit {
   getPageCount() {
     this.customersService.getCount().subscribe((count) => {
       this.totalPages = Math.ceil(count / this.pageSize);
+      this.totalDatas = count;
     });
   }
 
