@@ -12,7 +12,7 @@ export class SideBarComponent {
   isDropdownOpen = false;
   @Input() isSidebarOpen: boolean = false;
   menuItems = [
-    { label: '員工資料設定', href: '#' },
+    { label: '員工資料設定', href: '/default' },
     { label: '員工資料異動', href: '#' },
     { label: '部門代號設定', href: '#' },
     { label: '匯費級距表', href: '#' },
