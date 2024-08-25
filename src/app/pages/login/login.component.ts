@@ -16,10 +16,11 @@ export class LoginComponent {
   password: string = '';
 
   constructor(private router: Router) {}
-
+ //密碼隱藏/顯示
   togglePasswordVisibility(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
+  //登入邏輯
   signin(): void {
     console.log("username:",this.username);
     console.log("password:",this.password);
