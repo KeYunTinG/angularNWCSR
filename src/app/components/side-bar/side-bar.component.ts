@@ -12,18 +12,23 @@ export class SideBarComponent {
   isDropdownOpen = false;
   @Input() isSidebarOpen: boolean = false;
   menuItems = [
-    { label: '員工資料設定', href: '/default' },
-    { label: '員工資料異動', href: '#' },
-    { label: '部門代號設定', href: '#' },
-    { label: '匯費級距表', href: '#' },
-    { label: '分攤比率修改', href: '#' },
-    { label: '分攤比率增減', href: '#' },
-    { label: '會計科目設定', href: '#' },
-    { label: '廠商資料設定', href: '#' },
-    { label: '廠商資料異動', href: '#' },
-    { label: '解款行庫設定', href: '#' },
-    { label: '狀態碼維護', href: '#' },
-    { label: '憑證類別設定', href: '#' },
+    {
+      label: '員工資料',
+      children: [
+        { label: '員工資料設定', href: '/default' },
+        { label: '員工資料異動', href: '#' },
+        { label: '部門代號設定', href: '#' },
+        { label: '匯費級距表', href: '#' },
+        { label: '分攤比率修改', href: '#' },
+        { label: '分攤比率增減', href: '#' },
+        { label: '會計科目設定', href: '#' },
+        { label: '廠商資料設定', href: '#' },
+        { label: '廠商資料異動', href: '#' },
+        { label: '解款行庫設定', href: '#' },
+        { label: '狀態碼維護', href: '#' },
+        { label: '憑證類別設定', href: '#' },
+      ],
+    },
   ];
   constructor() {}
   // 監聽窗口尺寸變化

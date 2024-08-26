@@ -6,7 +6,7 @@
   <!-- 單位選擇 -->
   <div class="flex items-center space-x-2">
     <label for="unit" class="text-black font-semibold dark:text-whitegif dark:text-white">單位</label>
-    <select id="unit" v-model="selectedUnit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <select id="unit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option value="">請選擇</option>
       <option value="unit1">信託部</option>
       <option value="unit2">新分行</option>
@@ -64,7 +64,8 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let customer of customers" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        @for (customer of customers; track $index) {
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {{ customer.customerId }}
               </th>
@@ -81,6 +82,7 @@
                   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
               </td>
           </tr>
+        }
       </tbody>
   </table>
 </div>
@@ -88,7 +90,8 @@
 <div class="pt-4"style="text-align: center;">
 <app-pagination
   [page]="currentPage"
-  [pageCount]="totalPages"
+  [pageTotal]="totalPages"
+  [pageSize]="pageSize"
   (pageChange)="onPageChange($event)">
 </app-pagination>
 </div>

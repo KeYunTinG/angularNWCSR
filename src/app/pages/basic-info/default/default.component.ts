@@ -20,7 +20,7 @@ export class DefaultComponent implements OnInit {
   //總頁數
   totalPages: number = 10;
   //資料比數
-  totalDatas: number = 1;
+  totalDatas: number = 0;
 
   constructor(private customersService: CustomersService) {}
 

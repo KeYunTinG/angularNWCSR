@@ -8,17 +8,19 @@ import {
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css',
 })
 export class PaginationComponent implements OnInit {
   @Input() page = 1;
-  @Input() pageCount = 1;
+  @Input() pageTotal = 1;
+  @Input() pageSize = 10;
   @Input() pageNumbers: number[] = [];
 
   @Output() pageChange = new EventEmitter<number>();
@@ -35,7 +37,7 @@ export class PaginationComponent implements OnInit {
   // 下一頁頁碼
   nextPage = computed(() => {
     // 檢查頁碼是否小於總頁數
-    return this.currentPage() < this.pageCount
+    return this.currentPage() < this.pageTotal
       ? this.currentPage() + 1
       : this.currentPage();
   });
@@ -48,7 +50,7 @@ export class PaginationComponent implements OnInit {
 
   jumpTo(num: number) {
     // 頁碼不可以小於 1 或大於總頁碼
-    if (num < 1 || num > this.pageCount) {
+    if (num < 1 || num > this.pageTotal) {
       return;
     }
 
@@ -77,7 +79,7 @@ export class PaginationComponent implements OnInit {
       const startPage =
         (Math.floor((this.currentPage() - 11) / 10) + 1) * 10 + 1;
       const endPage =
-        startPage + 9 > this.pageCount ? this.pageCount : startPage + 9;
+        startPage + 9 > this.pageTotal ? this.pageTotal : startPage + 9;
       this.pageNumbers = Array.from(
         { length: endPage - startPage + 1 },
         (_, i) => startPage + i

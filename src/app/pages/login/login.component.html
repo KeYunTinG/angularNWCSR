@@ -14,9 +14,11 @@
                 </svg>
               </div>
             </div>
-            <div *ngIf="usernameInput.touched &&username.length === 0" class="text-red-600 text-sm">
+            @if (usernameInput.touched && username.length === 0) {
+            <div  class="text-red-600 text-sm">
               員工編號為必填
             </div>
+          }
 
             <div>
               <label class="text-gray-800 text-base mb-2 block">密碼</label>
@@ -27,9 +29,11 @@
                 </svg>
               </div>
             </div>
-            <div *ngIf="passwordInput.touched &&password.length === 0" class="text-red-600 text-sm">
+            @if(passwordInput.touched && password.length === 0){
+            <div class="text-red-600 text-sm">
               密碼為必填
             </div>
+          }
 
             <!-- <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center">
