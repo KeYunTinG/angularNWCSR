@@ -6,8 +6,8 @@ import { BlankComponent } from './pages/blank/blank.component';
 import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
-  { path: '', component: DefaultComponent },
-  //{ path: '', component: LoginComponent },
+  //{ path: '', component: DefaultComponent },
+  { path: '', component: LoginComponent },
   //員工資料
   {
     path: '',
