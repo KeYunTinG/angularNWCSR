@@ -45,7 +45,7 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {
     // 根據 @Input() 初始頁碼狀態
     this.currentPage.set(this.page);
-    this.setPageNumber();
+    this.setPageNumber(this.currentPage(), this.pageTotal);
   }
 
   jumpTo(num: number) {
@@ -59,27 +59,25 @@ export class PaginationComponent implements OnInit {
 
     // 觸發事件
     this.pageChange.emit(num);
-    this.setPageNumber();
+    this.setPageNumber(this.currentPage(), this.pageTotal);
   }
 
   goPrevious() {
     this.jumpTo(this.currentPage() - 1);
-    this.setPageNumber();
+    this.setPageNumber(this.currentPage(), this.pageTotal);
   }
 
   goNext() {
     this.jumpTo(this.currentPage() + 1);
-    this.setPageNumber();
+    this.setPageNumber(this.currentPage(), this.pageTotal);
   }
   //產生頁碼
-  setPageNumber() {
-    if (this.currentPage() < 10) {
+  setPageNumber(page: number, total: number) {
+    if (page < 10) {
       this.pageNumbers = Array.from({ length: 10 }, (_, i) => 1 + i);
     } else {
-      const startPage =
-        (Math.floor((this.currentPage() - 11) / 10) + 1) * 10 + 1;
-      const endPage =
-        startPage + 9 > this.pageTotal ? this.pageTotal : startPage + 9;
+      const startPage = (Math.floor((page - 11) / 10) + 1) * 10 + 1;
+      const endPage = startPage + 9 > total ? total : startPage + 9;
       this.pageNumbers = Array.from(
         { length: endPage - startPage + 1 },
         (_, i) => startPage + i
