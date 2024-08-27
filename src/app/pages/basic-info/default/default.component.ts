@@ -53,6 +53,7 @@ export class DefaultComponent implements OnInit {
   }
   // 顯示筆數變化
   pageSizeChange(pageSize: number) {
+    this.currentPage.set(1);
     this.loadCustomers(this.currentPage(), pageSize);
     this.getPageCount();
   }
