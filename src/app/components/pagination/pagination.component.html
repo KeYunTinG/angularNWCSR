@@ -1,6 +1,6 @@
 <nav aria-label="Page navigation example">
   每頁筆數:
-  <select  [(ngModel)]="pageSize"id="dataitem" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <select  [(ngModel)]="pageSize" (ngModelChange)="pageSizeSet()" id="dataitem" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option value="5">5筆</option>
     <option value="10">10筆</option>
     <option value="20">20筆</option>

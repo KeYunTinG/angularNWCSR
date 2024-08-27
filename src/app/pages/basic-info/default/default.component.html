@@ -89,10 +89,11 @@
 
 <div class="pt-4"style="text-align: center;">
 <app-pagination
-  [page]="currentPage"
-  [pageTotal]="totalPages"
-  [pageSize]="pageSize"
-  (pageChange)="onPageChange($event)">
+  [page]="currentPage()"
+  [pageTotal]="totalPages()"
+  [(pageSize)]="pageSize"
+  (pageChange)="onPageChange($event)"
+  (pageSizeChange)="pageSizeChange($event)">
 </app-pagination>
 </div>
 

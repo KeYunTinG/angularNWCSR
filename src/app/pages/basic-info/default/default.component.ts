@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomersService } from '../../../services/customers.service';
 import { Customers } from '../../../interfaces/customers';
@@ -14,18 +14,18 @@ import { PaginationComponent } from '../../../components/pagination/pagination.c
 export class DefaultComponent implements OnInit {
   customers: Customers[] = [];
   //當前頁數
-  currentPage: number = 1;
+  currentPage = signal<number>(1);
   //每頁資料數
-  pageSize: number = 10;
+  pageSize = signal<number>(20);
   //總頁數
-  totalPages: number = 10;
-  //資料比數
+  totalPages = signal<number>(0);
+  //資料筆數
   totalDatas: number = 0;
 
   constructor(private customersService: CustomersService) {}
 
   ngOnInit(): void {
-    this.loadCustomers(this.currentPage, this.pageSize);
+    this.loadCustomers(this.currentPage(), this.pageSize());
     this.getPageCount();
   }
 
@@ -37,17 +37,23 @@ export class DefaultComponent implements OnInit {
         this.customers = data;
       });
   }
+  //計算總頁數
   getPageCount() {
     this.customersService.getCount().subscribe((count) => {
-      this.totalPages = Math.ceil(count / this.pageSize);
+      this.totalPages.set(Math.ceil(count / this.pageSize()));
       this.totalDatas = count;
     });
   }
 
-  //由html觸發
+  //由子組件觸發
   onPageChange(newPage: number) {
     // 更新當前頁碼
-    this.currentPage = newPage;
-    this.loadCustomers(this.currentPage, this.pageSize);
+    this.currentPage.set(newPage);
+    this.loadCustomers(this.currentPage(), this.pageSize());
+  }
+  // 顯示筆數變化
+  pageSizeChange(pageSize: number) {
+    this.loadCustomers(this.currentPage(), pageSize);
+    this.getPageCount();
   }
 }
