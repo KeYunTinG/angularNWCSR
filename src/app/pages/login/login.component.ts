@@ -25,7 +25,10 @@ export class LoginComponent {
     console.log('username:', this.username);
     console.log('password:', this.password);
 
-    if (this.username.length === 0 || this.password.length === 0) return;
+    if (this.username.length === 0 || this.password.length === 0) {
+      alert('員工編號密碼不得為空');
+      return;
+    }
     if (this.username !== 'mygo' || this.password !== 'mygo') {
       alert('員工編號密碼有誤');
     } else if (this.username === 'mygo' && this.password === 'mygo') {
