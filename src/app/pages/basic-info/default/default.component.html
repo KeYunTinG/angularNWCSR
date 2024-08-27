@@ -2,18 +2,19 @@
   <h5 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-white">員工基本資料 共{{totalDatas}}筆</h5>
 </div>
 
+<form [formGroup]="searchForm" (ngSubmit)="submitForm()">
 <div class="flex items-center space-x-4 pr-4 pb-4 rounded-md">
   <!-- 單位選擇 -->
   <div class="flex items-center space-x-2">
     <label for="unit" class="text-black font-semibold dark:text-whitegif dark:text-white">單位</label>
-    <select id="unit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <select id="unit" formControlName="unit" class="p-2 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option value="">請選擇</option>
-      <option value="unit1">信託部</option>
-      <option value="unit2">新分行</option>
-      <option value="unit3">行銷企劃部</option>
-      <option value="unit4">法務暨法令遵循部</option>
-      <option value="unit5">高雄卡中心</option>
-      <option value="unit6">台北卡中心</option>
+      <option value="">信託部</option>
+      <option value="">新分行</option>
+      <option value="">行銷企劃部</option>
+      <option value="">法務暨法令遵循部</option>
+      <option value="">高雄卡中心</option>
+      <option value="">台北卡中心</option>
     </select>
   </div>
 
@@ -36,10 +37,11 @@
   </div>
 
   <!-- 搜尋按鈕 -->
-  <button  class="p-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+  <button  type="submit" class="p-2 bg-green-500 text-white rounded-md hover:bg-green-600">
     搜尋
   </button>
 </div>
+</form>
 <!-- 表格 -->
 
 <div *ngIf="customers.length; else noData" class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -77,9 +79,6 @@
               </td>
               <td class="px-6 py-4">
                 {{ customer.contactTitle }}
-              </td>
-              <td class="px-6 py-4 text-right">
-                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
               </td>
           </tr>
         }

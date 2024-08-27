@@ -6,20 +6,32 @@ import { Customers } from '../interfaces/customers';
   providedIn: 'root',
 })
 export class CustomersService {
-  mainUrl = 'https://localhost:7149/api';
-  keyUrl = `${this.mainUrl}/Customer`;
+  apiUrl = 'https://localhost:7149/api';
+  url = `${this.apiUrl}/Customer`;
 
   constructor(private http: HttpClient) {}
 
   getAllData() {
-    return this.http.get<Customers[]>(`${this.keyUrl}`);
+    return this.http.get<Customers[]>(`${this.url}`);
   }
-  getPageData(page: number, pageSize: number) {
+  getPageData(
+    page: number,
+    pageSize: number,
+    companyName: string = '',
+    contactName: string = '',
+    contactTitle: string = ''
+  ) {
     return this.http.get<Customers[]>(
-      `${this.keyUrl}/${page}?pageSize=${pageSize}`
+      `${this.url}/${page}?companyName=${companyName}&contactName=${contactName}&contactTitle=${contactTitle}&pageSize=${pageSize}`
     );
   }
-  getCount() {
-    return this.http.get<number>(`${this.keyUrl}/count`);
+  getCount(
+    companyName: string = '',
+    contactName: string = '',
+    contactTitle: string = ''
+  ) {
+    return this.http.get<number>(
+      `${this.url}/count?companyName=${companyName}&contactName=${contactName}&contactTitle=${contactTitle}`
+    );
   }
 }
