@@ -3,6 +3,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { DefaultComponent } from './pages/basic-info/default/default.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SupplierComponent } from './pages/basic-info/supplier/supplier.component';
+import { SuppliertEditComponent } from './pages/basic-info/suppliert-edit/suppliert-edit.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -24,7 +25,7 @@ export const routes: Routes = [
       {
         path: 'supplierEdit',
         title: '廠商資料異動',
-        component: SupplierComponent,
+        component: SuppliertEditComponent,
       },
     ],
   },

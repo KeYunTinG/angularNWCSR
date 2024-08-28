@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -34,7 +34,7 @@ export class SuppliertEditComponent {
       // 往來狀態
       contactStatus: [''],
       // 收件人信箱
-      email: [''],
+      email: ['', [Validators.required, Validators.email]],
       // 聯絡窗口
       contact: [''],
       // 登錄人員
