@@ -1,0 +1,127 @@
+<form [formGroup]="Form" (ngSubmit)="submitForm()">
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+ <!-- 申請日期 -->
+      <label for="date" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">申請日期:</label>
+      <input type="date" id="date" formControlName="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+    </div>
+ <!-- 統一編號 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="unifiedNumber" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">統一編號:</label>
+      <input type="text" id="unifiedNumber" formControlName="unifiedNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" maxlength="8" required />
+    </div>
+  <div class="flex items-center mb-2">
+ <!-- 廠商名稱 -->
+      <p class="text-red-600">*</p>
+      <label for="client" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">廠商名稱:</label>
+      <input type="text" id="client" formControlName="client" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-4" placeholder="" required />
+ <!-- 利害關係人 -->
+      <p class="text-red-600">*</p>
+      <label for="stakes" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">利害關係人:</label>
+      <div class="flex">
+        <input type="radio" id="client_yes" name="stakes" value="true" formControlName="stakes" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">是</p>
+        <input type="radio" id="client_no" name="stakes" value="false" formControlName="stakes" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">否</p>
+      </div>
+  </div>
+  <div>
+<!-- 匯款戶名 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="accountName" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">匯款戶名:</label>
+      <input type="text" id="accountName" formControlName="accountName" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+    </div>
+<!-- 匯款帳號 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="ACNo" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">匯款帳號:</label>
+      <input type="text" id="ACNo" formControlName="ACNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="" maxlength="16" required />
+    </div>
+<!-- 解款行號 -->
+     <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="bankNo" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">解款行號:</label>
+      <a href="" class="text-base font-semibold text-blue-400 underline mr-1">查詢</a>
+      <input type="text" id="bankNo" formControlName="bankNo" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" maxlength="7" required />
+    </div>
+<!-- 匯款方式 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="method" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">匯款方式:</label>
+      <div class="flex">
+        <input type="radio" id="method_across" name="method" value="1" formControlName="method" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">跨行</p>
+        <input type="radio" id="method_self" name="method" value="2" formControlName="method" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">自行</p>
+        <input type="radio" id="method_other" name="method" value="3" formControlName="method" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">其他</p>
+      </div>
+    </div>
+<!-- 匯費 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="tax" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">匯費:</label>
+      <div class="flex">
+        <input type="radio" id="tax_self" name="tax" value="1" formControlName="tax" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">本行負擔</p>
+        <input type="radio" id="tax_each" name="tax" value="2" formControlName="tax" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">廠商負擔</p>
+      </div>
+    </div>
+<!-- 往來狀態 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="contactStatus" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">往來狀態:</label>
+      <div class="flex">
+        <input type="radio" id="contactStatus_yes" name="contactStatus" value="true" formControlName="contactStatus" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">往來</p>
+        <input type="radio" id="contactStatus_no" name="contactStatus" value="false" formControlName="contactStatus" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">解約</p>
+      </div>
+    </div>
+    </div>
+<!-- 收件人信箱 -->
+    <div class="flex items-center mb-2">
+      <label for="email" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">收件人信箱:</label>
+      <input type="text" id="email" formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""/>
+    </div>
+<!-- 聯絡窗口 -->
+    <div class="flex items-center mb-2">
+      <label for="contact" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">聯絡窗口:</label>
+      <input type="text" id="contact" formControlName="contact" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4" placeholder=""/>
+    </div>
+<!-- 登錄人員 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="staff" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">登錄人員:</label>
+      <input type="text" id="staff" formControlName="staff" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-4" placeholder="" required />
+<!-- 登錄日期 -->
+      <p class="text-red-600">*</p>
+      <label for="loginDate" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">登錄日期:</label>
+      <input type="text" id="loginDate" formControlName="loginDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+    </div>
+<!-- 覆核人員 -->
+    <div class="flex items-center mb-2 ml-2">
+      <label for="reviewer" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">覆核人員:</label>
+      <input type="text" id="reviewer" formControlName="reviewer" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-4" placeholder=""/>
+<!-- 覆核日期 -->
+      <label for="reviewerDate" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4 ml-2">覆核日期:</label>
+      <input type="text" id="reviewerDate" formControlName="reviewerDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" />
+    </div>
+<!-- 狀態 -->
+    <div class="flex items-center mb-2">
+      <p class="text-red-600">*</p>
+      <label for="state" class="text-base font-semibold text-gray-900 dark:text-white text-right mr-4">狀態:</label>
+      <div class="flex">
+        <input type="radio" id="state_back" name="state" value="false" formControlName="state" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">退回</p>
+        <input type="radio" id="state_nucleated" name="state" value="true" formControlName="state" class="w-5 h-5 mr-2" />
+        <p class="text-base font-semibold text-gray-900 dark:text-white mr-2">呈核</p>
+      </div>
+    </div>
+    <button type="submit" class="focus:outline-none text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">新增</button>
+    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">取消</button>
+    <button (click)="demo()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">でも</button>
+</form>

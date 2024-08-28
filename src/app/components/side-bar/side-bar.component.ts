@@ -22,7 +22,7 @@ export class SideBarComponent {
         { label: '分攤比率修改', href: '#' },
         { label: '分攤比率增減', href: '#' },
         { label: '會計科目設定', href: '#' },
-        { label: '廠商資料設定', href: '#' },
+        { label: '廠商資料設定', href: '/supplier' },
         { label: '廠商資料異動', href: '#' },
         { label: '解款行庫設定', href: '#' },
         { label: '狀態碼維護', href: '#' },
