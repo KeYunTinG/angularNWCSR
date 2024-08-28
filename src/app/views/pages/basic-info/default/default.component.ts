@@ -1,8 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomersService } from '../../../services/customers.service';
-import { Customers } from '../../../interfaces/customers';
-import { PaginationComponent } from '../../../components/pagination/pagination.component';
+import { CustomersService } from '../../../../services/customers.service';
+import { Customers } from '../../../../interfaces/customers';
+import { PaginationComponent } from '../../../../components/pagination/pagination.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 

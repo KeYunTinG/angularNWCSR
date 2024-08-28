@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
       alert('員工編號密碼不得為空');
       return;
     }
-    if (this.username !== 'mygo' || this.password !== 'mygo') {
+    if (this.username !== 'uitc' || this.password !== 'uitc') {
       alert('員工編號密碼有誤');
-    } else if (this.username === 'mygo' && this.password === 'mygo') {
+    } else if (this.username === 'uitc' && this.password === 'uitc') {
       this.router.navigate(['/default']);
     }
   }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { DefaultComponent } from './pages/basic-info/default/default.component';
+import { LayoutComponent } from './views/layout/layout.component';
+import { DefaultComponent } from './views/pages/basic-info/default/default.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,4 @@ import { DefaultComponent } from './pages/basic-info/default/default.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'mygo';
-}
+export class AppComponent {}

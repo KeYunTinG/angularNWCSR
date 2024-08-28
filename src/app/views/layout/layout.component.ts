@@ -7,7 +7,7 @@ import { SideBarComponent } from '../../components/side-bar/side-bar.component';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule,RouterOutlet, ThemeToggleComponent, SideBarComponent],
+  imports: [CommonModule, RouterOutlet, ThemeToggleComponent, SideBarComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })

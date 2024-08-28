@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { DefaultComponent } from './pages/basic-info/default/default.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SupplierComponent } from './pages/basic-info/supplier/supplier.component';
-import { SuppliertEditComponent } from './pages/basic-info/suppliert-edit/suppliert-edit.component';
+import { LayoutComponent } from './views/layout/layout.component';
+import { DefaultComponent } from './views/pages/basic-info/default/default.component';
+import { LoginComponent } from './views/pages/login/login.component';
+import { SupplierComponent } from './views/pages/basic-info/supplier/supplier.component';
+import { SuppliertEditComponent } from './views/pages/basic-info/suppliert-edit/suppliert-edit.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
