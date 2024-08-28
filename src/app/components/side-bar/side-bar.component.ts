@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css',
 })
-export class SideBarComponent {
+export class SideBarComponent implements OnInit {
   isDropdownOpen = false;
   @Input() isSidebarOpen: boolean = false;
   menuItems = [
@@ -23,7 +23,7 @@ export class SideBarComponent {
         { label: '分攤比率增減', href: '#' },
         { label: '會計科目設定', href: '#' },
         { label: '廠商資料設定', href: '/supplier' },
-        { label: '廠商資料異動', href: '#' },
+        { label: '廠商資料異動', href: '/supplierEdit' },
         { label: '解款行庫設定', href: '#' },
         { label: '狀態碼維護', href: '#' },
         { label: '憑證類別設定', href: '#' },
@@ -31,6 +31,13 @@ export class SideBarComponent {
     },
   ];
   constructor() {}
+  ngOnInit(): void {
+    //記住sidebar狀態
+    const savedState = localStorage.getItem('dropdownState');
+    if (savedState !== null) {
+      this.isDropdownOpen = JSON.parse(savedState);
+    }
+  }
   // 監聽窗口尺寸變化
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
@@ -44,5 +51,6 @@ export class SideBarComponent {
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
+    localStorage.setItem('dropdownState', JSON.stringify(this.isDropdownOpen));
   }
 }

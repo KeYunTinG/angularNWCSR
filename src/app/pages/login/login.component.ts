@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   isPasswordVisible: boolean = false;
   username: string = '';
   password: string = '';
 
   constructor(private router: Router) {}
+  ngOnInit(): void {
+    localStorage.setItem('dropdownState', JSON.stringify(false));
+  }
   //密碼隱藏/顯示
   togglePasswordVisibility(): void {
     this.isPasswordVisible = !this.isPasswordVisible;

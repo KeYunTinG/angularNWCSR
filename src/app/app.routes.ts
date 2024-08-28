@@ -21,6 +21,11 @@ export const routes: Routes = [
         title: '廠商基本資料',
         component: SupplierComponent,
       },
+      {
+        path: 'supplierEdit',
+        title: '廠商資料異動',
+        component: SupplierComponent,
+      },
     ],
   },
   //{ path: '**', component: BlankComponent}
